@@ -34,13 +34,16 @@ jobs:
           filename: "tmcr-newlogic-ci"
           tarBall: false
           zipBall: false
-          out-file-path: bin
       - name: Make it executable
-        run: |
-          echo "$GITHUB_WORKSPACE/bin" >> "$GITHUB_PATH"
-          chmod +x "$GITHUB_WORKSPACE/bin/tmcr-newlogic-ci"
+        run: chmod +x "$GITHUB_WORKSPACE/tmcr-newlogic-ci"
       - name: Run the CI tool
         run: |
           cd $GITHUB_WORKSPACE
           ls
-          tmcr-newlogic-ci *.logic
+          if [[ -x tmcr-newlogic-ci ]]
+          then ./tmcr-newlogic-ci *.logic
+          elif [[ -f tmcr-newlogic-ci ]]
+          echo "exists, but isn't executable"
+          else
+          echo "does not exist"
+          fi
