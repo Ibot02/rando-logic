@@ -35,6 +35,7 @@ jobs:
           tarBall: false
           zipBall: false
           out-file-path: bin
+      - name: Make it executable
         run: |
           echo ::add-path::$GITHUB_WORKSPACE/bin"
           chmod +x "$GITHUB_WORKSPACE/bin/tmcr-newlogic-ci"
