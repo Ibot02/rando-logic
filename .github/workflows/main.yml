@@ -42,8 +42,7 @@ jobs:
           ls
           if [[ -x tmcr-newlogic-ci ]]; then
             ./tmcr-newlogic-ci *.logic
-          elif [[ -f tmcr-newlogic-ci ]];
-            echo "exists, but isn't executable"
-          else
-            echo "does not exist"
+          fi
+          if [[ -f tmcr-newlogic-ci ]]; then
+            echo "exists"
           fi
