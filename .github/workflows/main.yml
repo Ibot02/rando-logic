@@ -40,9 +40,7 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           ls
-          if [[ -f tmcr-newlogic-ci ]]; then
-            echo "exists"
-          fi
-          if [[ -x tmcr-newlogic-ci ]]; then
+          if [[ -x ./tmcr-newlogic-ci ]]; then
+            echo "./tmcr-newlogic-ci exists and is executable"
             ./tmcr-newlogic-ci *.logic
           fi
