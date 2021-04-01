@@ -26,7 +26,7 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - name: Download the CI tool
+      - name: Get the CI tool
         uses: robinraju/release-downloader@v1
         with:
           repository: Ibot02/tmcr-newlogic-ci
@@ -34,10 +34,12 @@ jobs:
           filename: "tmcr-newlogic-ci"
           tarBall: false
           zipBall: false
-      - name: Make it executable
-        run: chmod +x $GITHUB_WORKSPACE/tmcr-newlogic-ci
+          out-file-path: bin
+        run: |
+          echo ::add-path::$GITHUB_WORKSPACE/bin"
+          chmod +x "$GITHUB_WORKSPACE/bin/tmcr-newlogic-ci"
       - name: Run the CI tool
         run: |
           cd $GITHUB_WORKSPACE
           ls
-          ./tmcr-newlogic-ci *.logic
+          tmcr-newlogic-ci *.logic
