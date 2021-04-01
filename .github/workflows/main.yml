@@ -37,7 +37,7 @@ jobs:
           out-file-path: bin
       - name: Make it executable
         run: |
-          echo ::add-path::"$GITHUB_WORKSPACE/bin"
+          echo "$GITHUB_WORKSPACE/bin" >> "$GITHUB_PATH"
           chmod +x "$GITHUB_WORKSPACE/bin/tmcr-newlogic-ci"
       - name: Run the CI tool
         run: |
