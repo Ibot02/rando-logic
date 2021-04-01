@@ -35,4 +35,4 @@ jobs:
           tarBall: false
           zipBall: false
       - name: Run the CI tool
-        run: tmcr-newlogic-ci *.logic
+        run: $GITHUB_WORKSPACE/tmcr-newlogic-ci $GITHUB_WORKSPACE/*.logic
