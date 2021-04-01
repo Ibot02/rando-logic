@@ -37,4 +37,7 @@ jobs:
       - name: Make it executable
         run: chmod +x $GITHUB_WORKSPACE/tmcr-newlogic-ci
       - name: Run the CI tool
-        run: $GITHUB_WORKSPACE/tmcr-newlogic-ci
+        run: |
+          cd $GITHUB_WORKSPACE
+          ls
+          ./tmcr-newlogic-ci *.logic
